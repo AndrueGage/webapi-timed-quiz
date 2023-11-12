@@ -16,17 +16,28 @@
             <button onclick="startQuiz()" id="startbtn">Start Quiz</button>
         </div>
         <div id="quiz">
+            <div id="timerp">
             <p>Timer:<span id="time">60</span></p>
+            </div>
             <p id="question"></p>
             <div id="choices">
             </div>
+            <div id="scorep">
             <p>Score:<span id="HighScore">0</span></p>
+            </div>
         </div>
-        
-    
-    
-    
+        <div id="endGame">
+            <p>You finished the quiz!</p>
+            <p>Your final score is:<span id="finalscore"></span></p>
+            <p>You completed it in:<span id="timeleft"></span> seconds</p>
+            <form onsubmit="getFormData(event)"> 
+                <label for="initial">Enter your initials</label>
+                <input type="text" name="initial" id="initial" />
+                <button type="submit">Save</button>
+            </form>
+        </div>
     </div>
-    <script src="script.js"></script>   
+        <script src="script.js"></script>   
 </body>
 </html>
+    
