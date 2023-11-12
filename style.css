@@ -7,6 +7,7 @@
 
 .container {
     max-width: 1100px;
+    height: 500px;
     color: #E93CAC;
     border: 5px solid #FCEE09;
     border-radius: 25px;
@@ -27,4 +28,44 @@
 #startbtn {
     color: #00F0FF;
     border-radius: 10px;
+}
+
+#timerp {
+    position: absolute;
+    top: 5px;
+    right: 40px;
+    font-size: 25px;
+}
+
+#question {
+    padding: 55px;
+}
+
+#choices {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+}
+
+.btnstyle {
+    color:  #FCEE09;
+    border-radius: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+.btnstyle:hover {
+    transform: scale(1.02);
+    background-color: #FCEE09;
+    color: #201547;
+}
+
+#scorep {
+    position: absolute;
+    top: 5px;
+    left: 40px;
+    font-size: 25px;
+}
+
+#endGame {
+    display: none;
 }
