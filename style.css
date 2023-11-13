@@ -7,7 +7,9 @@
 
 .container {
     max-width: 1100px;
-    height: 500px;
+    width: 100%;
+    overflow-y: hidden;
+    height: 600px;
     color: #E93CAC;
     border: 5px solid #FCEE09;
     border-radius: 25px;
@@ -45,12 +47,14 @@
     display: flex;
     gap: 5px;
     justify-content: center;
+    font-size: 30px;
 }
 
 .btnstyle {
     color:  #FCEE09;
     border-radius: 20px;
     transition: all 0.3s ease-in-out;
+    text-decoration: none;
 }
 
 .btnstyle:hover {
@@ -68,4 +72,69 @@
 
 #endGame {
     display: none;
+    font-size: 25px;
+}
+
+#scoreboard {
+    position: absolute;
+    top: 20px;
+    background-color: #201547;
+    z-index: 99;
+    border: #FCEE09 solid 2px;
+    height: 500px;
+    width: 1100px;
+    overflow-y: scroll;
+    border-radius: 20px;
+    filter: drop-shadow(4px 1px 50px #FCEE09);
+    padding-top: 20px;
+}
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #FCEE09 transparent;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #FCEE09;
+    border-radius: 10px;
+    border: 3px solid transparent;
+  }
+
+#scorelist {
+    font-size: 22px;
+    
+}
+
+input {
+    border-radius: 20px;
+    padding-left: 15px;
+    border: 2px solid #FCEE09;
+    color: #E93CAC;
+}
+input:focus-visible {
+    outline-color: #FCEE09;
+}
+
+input::placeholder {
+    color: #e93cada0;
+}
+
+table {
+    margin: 20px auto;
+}
+
+table, th, td {
+    border: 1px solid;
+    width: 50%;
 }
