@@ -8,8 +8,7 @@ This is a timed coding quiz built using HTML, CSS, and JavaScript. The timer wil
 - [Contact](#contact)
   
 ## Preview
-![image](https://github.com/AndrueGage/webapi-timed-quiz/assets/147120878/34bbbe79-4635-4dd6-820c-23ae51c1ff4b)
-
+![image](https://github.com/AndrueGage/webapi-timed-quiz/assets/147120878/d9412446-2ae9-40c7-93f2-75d61fb85b78)
 
 Visit the live site [here!](https://andruegage.github.io/webapi-timed-quiz/)
 
