@@ -8,12 +8,13 @@
 </head>
 <body>
     <div class="container">
-        
+        <button onclick="showScores()" id="topbtn" class="btnstyle" >HighScores</button>
+        <a href="./index.html" style="display: none;" id="restartquiz" class="btnstyle">Restart</a>
         <div id="startpage">
             <h2>JavaScript Quiz</h2>
             <h2>Welcome to my timed JavaScript quiz! Press the start button to begin. <br />
             Incorrect answers will have your time deducted by 5 seconds.</h2>
-            <button onclick="startQuiz()" id="startbtn">Start Quiz</button>
+            <button onclick="startQuiz()" id="startbtn" class="btnstyle">Start Quiz</button>
         </div>
         <div id="quiz">
             <div id="timerp">
@@ -22,6 +23,7 @@
             <p id="question"></p>
             <div id="choices">
             </div>
+            <p id="result"></p>
             <div id="scorep">
             <p>Score:<span id="HighScore">0</span></p>
             </div>
@@ -29,12 +31,21 @@
         <div id="endGame">
             <p>You finished the quiz!</p>
             <p>Your final score is:<span id="finalscore"></span></p>
-            <p>You completed it in:<span id="timeleft"></span> seconds</p>
+            <p>Your remaining time:<span id="timeleft"></span> seconds</p>
             <form onsubmit="getFormData(event)"> 
-                <label for="initial">Enter your initials</label>
-                <input type="text" name="initial" id="initial" />
-                <button type="submit">Save</button>
+                <label for="initial"></label>
+                <input type="text" name="initial" id="initial" placeholder="Enter your initials" required />
+                <button type="submit" class="btnstyle">Save</button>
             </form>
+        </div>
+        <div id="scoreboard" style="display: none;">
+            <button onclick="showScores()" class="btnstyle">Close</button>
+            <table id="scorelist">
+               <tr>
+                <th>Initials</th>
+                <th>Score</th>
+               </tr>
+            </table>
         </div>
     </div>
         <script src="script.js"></script>   
