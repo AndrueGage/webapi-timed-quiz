@@ -1,3 +1,4 @@
+// Quiz questions
 const quizData = [
     { question: "What does HTML stand for?", correctAnswer: "Hypertext Markup Language", answers: ["Hypertext Markup Language", "Text Markup", "HTML", "Hypertext"] },
     { question: "Which is a programming language?", correctAnswer: "JavaScript", answers: ["CSS", "HTML", "JavaScript", "XML"] },
@@ -11,13 +12,14 @@ const quizData = [
     { question: "Purpose of 'defer' attribute in script tag?", correctAnswer: "Delay script execution", answers: ["Async script load", "Execute after page load", "Delay script execution"] },
 ];
 
-
+// Global variables
 const quizDuration = 60;
 let submitCount = 0;
 let shownQuestions = [];
 let score = 0;
 let timer = quizDuration;
 
+// Start quiz function with styling to hide once the quiz has begun. Starts the clock and shows the question.
 function startQuiz() {
     document.getElementById('startpage').style.display = 'none';
     document.getElementById('topbtn').style.display = 'none';
@@ -25,11 +27,13 @@ function startQuiz() {
     setInterval(updateTime, 1000)
 }
 
+// Adds 5 to the score
 function addScore() {
     score += 5;
     document.getElementById('HighScore').textContent = score;
 }
 
+// Stops the game and shows the endGame div
 function endGame() {
     document.getElementById('endGame').style.display = 'block';
     document.getElementById('quiz').style.display = 'none';
@@ -39,6 +43,7 @@ function endGame() {
     document.getElementById('restartquiz').style.display = 'block';
 }
 
+// Adds the quizData objects one by one randomly to the DOM, while also checking previously shown questions. If there are no questions left then end the game.
 function showQuestion() {
     document.getElementById('result').textContent = ''
     const choiceList = document.getElementById('choices');
@@ -60,6 +65,7 @@ function showQuestion() {
     shownQuestions.push(currentQuestion);
 }
 
+// This finds the current question based on the answer passed from the quizData array. If the answer is correct we add 5 points, if its wrong and the timer is still greater than 5 seconds we deduct 5 and update the timer. We also display whether or not the answer is right or wrong and waits .5 seconds before going to the next question.
 function checkAnswer(answer) {
     const currentQuestion = quizData.find(q => q.question === document.getElementById('question').textContent);
     if (answer === currentQuestion.correctAnswer) {
@@ -75,6 +81,7 @@ function checkAnswer(answer) {
     setTimeout(showQuestion, 500);
 }
 
+// This runs every second to update the timer, when the timer hits 0 it ends the game.
 function updateTime() {
     if (timer > 0) {
         timer--;
@@ -85,6 +92,7 @@ function updateTime() {
     }
 }
 
+// At the end of the game this handles the form for adding your initials to the score board in localStorage. It saves player data as an array of objects and also checks if that array exists before adding a new player object to it. It also keeps track of the submission count so that you can only add one submission to localStorage per game.
 function getFormData(event) {
     event.preventDefault();
     if (submitCount <= 0) {
@@ -105,10 +113,12 @@ function getFormData(event) {
     }
 }
 
+// This compares two objects in decending order.
 function compareScores(a, b) {
     return b.highscore - a.highscore
 }
 
+// This function displays the scores from localStorage and handles hiding and showing of the modal. It adds the table head each time its ran before looping over the array and adding the data for highscores. It also sorts the scores in decending order so the highscore is always at the top. Each time its ran it resets the innerHTML of the score list so that the data isnt duplicated next time you open it. 
 function showScores() {
     const scoreboard = document.getElementById('scoreboard')
     const scoreList = document.getElementById('scorelist');
